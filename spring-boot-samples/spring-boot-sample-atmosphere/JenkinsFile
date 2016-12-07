@@ -27,7 +27,7 @@ node {
      
 /////     withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'b9bc9cc5-871e-4738-88f3-9c3e5525a096',
                     usernameVariable: 'Username', passwordVariable: 'Password']])///// {
-      sh "curl -XDELETE  -u $Username:$Password http://35.163.156.3:8081/nexus/content/repositories/releases/org/springframework/boot/spring-boot-samples/1.5"
+     ///// sh "curl -XDELETE  -u $Username:$Password http://35.163.156.3:8081/nexus/content/repositories/releases/org/springframework/boot/spring-boot-samples/1.5"
     
      step([$class: 'NexusArtifactUploader',
      artifactId: 'spring-boot-samples', classifier: 'artifact',
