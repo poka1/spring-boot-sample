@@ -11,7 +11,7 @@ node {
      dir(project_path){
      withEnv(["PATH+MAVEN=${tool 'M3'}/bin"]){
      stage 'compiling, packaging'    
-     sh 'mvn clean package -Dbuild.number=-${BUILD_NUMBER}'
+     sh 'mvn clean package'
      
      stage 'test-archival/HTML-verify'
      publishHTML(target: [allowMissing: true,
@@ -24,6 +24,9 @@ node {
      testResults: 'target/surefire-reports/TEST-*.xml'])
 
      stage 'publish-nexus'
+     withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'b9bc9cc5-871e-4738-88f3-9c3e5525a096',
+                    usernameVariable: 'Username', passwordVariable: 'Password']]) {
+      sh "curl -XDELETE  -u $Username:$Password http://35.163.156.3:8081/nexus/content/repositories/releases/org/springframework/boot/spring-boot-samples/1.5"
      
     
      step([$class: 'NexusArtifactUploader',
@@ -33,7 +36,7 @@ node {
      groupId: 'org.springframework.boot',
      nexusUrl: '35.163.156.3:8081/nexus', 
      nexusVersion: 'NEXUS2', protocol: 'http',
-     repository: 'releases', type: 'jar', version: '${BUILD_NUMBER']) 
+     repository: 'releases', type: 'jar', version: '1.5']) 
      
      
        
