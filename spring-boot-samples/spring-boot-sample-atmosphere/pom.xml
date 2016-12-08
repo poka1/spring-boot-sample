@@ -16,7 +16,9 @@
 		<url>http://www.spring.io</url>
 	</organization>
 	<properties>
-		<main.basedir>${basedir}/../..</main.basedir>
+		####<main.basedir>${basedir}/../..</main.basedir>
+                <build.number></build.number>
+
 	</properties>
 	<dependencies>
 		<dependency>
@@ -50,6 +52,8 @@
 		</dependency>
 	</dependencies>
 	<build>
+              <finalName>${artifactId}-${version}${build.number}</finalName>
+
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
