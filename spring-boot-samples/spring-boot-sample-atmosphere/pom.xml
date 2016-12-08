@@ -6,7 +6,6 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>parent</artifactId>
 		<version>1.4.0.BUILD-SNAPSHOT</version>
-		<packaging>pom</packaging>
 	</parent>
 	<artifactId>spring-boot-sample-atmosphere</artifactId>
 	<name>Spring Boot Atmosphere Sample</name>
@@ -17,8 +16,8 @@
 		<url>http://www.spring.io</url>
 	</organization>
 	<properties>
-		<build.number></build.number>
 
+                           <main.basedir>${basedir}/../..</main.basedir>                 
 	</properties>
 	<dependencies>
 		<dependency>
@@ -52,7 +51,7 @@
 		</dependency>
 	</dependencies>
 	<build>
-              <finalName>${artifactId}-${version}${build.number}</finalName>
+              
 
 		<plugins>
 			<plugin>
