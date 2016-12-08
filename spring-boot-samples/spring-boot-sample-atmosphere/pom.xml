@@ -4,7 +4,7 @@
 	<parent>
 		<!-- Your own application should inherit from spring-boot-starter-parent -->
 		<groupId>org.springframework.boot</groupId>
-		<artifactId>parent</artifactId>
+		<artifactId>spring-boot-samples</artifactId>
 		<version>1.4.0.BUILD-SNAPSHOT</version>
 	</parent>
 	<artifactId>spring-boot-sample-atmosphere</artifactId>
@@ -16,7 +16,7 @@
 		<url>http://www.spring.io</url>
 	</organization>
 	<properties>
-                <main.basedir>${basedir}/../..</main.basedir>                 
+		<main.basedir>${basedir}/../..</main.basedir>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -50,8 +50,6 @@
 		</dependency>
 	</dependencies>
 	<build>
-              
-
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
