@@ -11,7 +11,7 @@ node {
      dir(project_path){
      withEnv(["PATH+MAVEN=${tool 'M3'}/bin"]){
      stage 'compiling, packaging'    
-     sh 'mvn clean package'
+     sh 'mvn clean package -Dbuild.number=-${BUILD_NUMBER}'
      
      stage 'test-archival/HTML-verify'
      publishHTML(target: [allowMissing: true,
@@ -33,7 +33,7 @@ node {
      groupId: 'org.springframework.boot',
      nexusUrl: '35.163.156.3:8081/nexus', 
      nexusVersion: 'NEXUS2', protocol: 'http',
-     repository: 'releases', type: 'jar', version: '1.5']) 
+     repository: 'releases', type: 'jar', version: '${BUILD_NUMBER']) 
      
      
        
