@@ -1,8 +1,8 @@
 node {
     
     stage 'checkout'
-    git 'https://github.com/afroje-reshma/spring-boot-sample.git'
-    def project_path = "spring-boot-samples/spring-boot-sample-atmosphere"
+    checkout scm
+    
     
     stage 'sonar-scan'
     def scannerHome = tool 'sonar-scanner'
